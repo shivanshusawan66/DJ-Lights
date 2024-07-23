@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ LIGHTS</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .box {
+            height: 10vw;
+            width: 10vw;
+        }
+
+        .container{
+            display:flex;
+            flex-wrap: wrap;
+            width: 95%;
+            margin: auto;
+            margin-top: 2%;
+            /* flex-direction: c; */
+        }
+
+
+        .heading{
+            font-size: 7vw;
+            color: rgb(0, 0, 0);
+            text-align: center;
+        }
+
+        .btn{
+            width: 60%;
+            height: 5vw;
+            font-weight: 400;
+            font-size: 3vw;
+            text-transform: uppercase;
+            background-color: black;
+            color: white;
+            border-radius:50px;
+
+        }
+
+        .button{
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button :hover{
+            cursor: pointer;
+            background-color: #005cb1;
+            animation: colorChange 0.3s linear;
+        }
+
+        @keyframes colorChange {
+            from{
+                background-color: black;
+            }
+            to{
+                background-color: #005cb1;
+            }   
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2 class="heading">
+        DJ LIGHT
+    </h2>
+
+    <div class="button">
+        <button class='btn' onclick="addBox()"> Click for magic</button>
+    </div>
+        
+
+    <div class="container">
+        <div class="box"> </div>
+
+    </div>
+
+    <script>
+        function color(){
+            boxes = document.getElementsByClassName("box");
+    
+            for (let element of boxes) {
+                const red = Math.floor(Math.random() * 256);
+                const green = Math.floor(Math.random() * 256);
+                const blue = Math.floor(Math.random() * 256);
+    
+                element.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+                // element.style.color = `rgb(${blue}, ${red}, ${green})`
+            }
+
+        }
+
+        function addBox(){
+            const cont = document.querySelector('.container');
+            const cardHTML = `<div class="box"> </div>`;
+
+            cont.innerHTML += cardHTML;
+
+
+
+        }
+
+        setInterval(() => {
+            color();
+        }, 1000);
+    </script>
+
+
+</body>
+
+</html>
